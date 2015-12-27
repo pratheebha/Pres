@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Growth of Orange Trees</title>
+  <meta charset="utf-8">
+  <meta name="description" content="Growth of Orange Trees">
+  <meta name="author" content="Pratheebha">
+  <meta name="generator" content="slidify" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/default.css" media="all" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/phone.css" 
+    media="only screen and (max-device-width: 480px)" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/slidify.css" >
+  <link rel="stylesheet" href="libraries/highlighters/highlight.js/css/tomorrow.css" />
+  <base target="_blank"> <!-- This amazingness opens all links in a new tab. -->  <link rel=stylesheet href="./assets/css/ribbons.css"></link>
+
+  
+  <!-- Grab CDN jQuery, fall back to local if offline -->
+  <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.min.js"></script>
+  <script>window.jQuery || document.write('<script src="libraries/widgets/quiz/js/jquery.js"><\/script>')</script> 
+  <script data-main="libraries/frameworks/io2012/js/slides" 
+    src="libraries/frameworks/io2012/js/require-1.0.8.min.js">
+  </script>
+  
+  
+
+</head>
+<body style="opacity: 0">
+  <slides class="layout-widescreen">
+    
+    <!-- LOGO SLIDE -->
+        <slide class="title-slide segue nobackground">
+  <hgroup class="auto-fadein">
+    <h1>Growth of Orange Trees</h1>
+    <h2>Developing Data Products Course Project using Slidify</h2>
+    <p>Pratheebha<br/></p>
+  </hgroup>
+  <article></article>  
+</slide>
+    
+
+    <!-- SLIDES -->
+    <slide class="" id="slide-1" style="background:;">
+  <hgroup>
+    <h2>About the Project</h2>
+  </hgroup>
+  <article data-timings="">
+    <ul>
+<li>This presentation is about the Growth of Orange Tree</li>
+<li>Takes a selected input for a tree and displays the circumference based on the age </li>
+<li>By changing the age range using a slider changes the circumference for any selected tree.</li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-2" style="background:;">
+  <hgroup>
+    <h2>Orange Data Source</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>The Orange data set contains data about the Orange trees, their age and circumference.</p>
+
+<pre><code class="r">library(datasets)
+data(Orange)
+summary(Orange)
+</code></pre>
+
+<pre><code>##  Tree       age         circumference  
+##  3:7   Min.   : 118.0   Min.   : 30.0  
+##  1:7   1st Qu.: 484.0   1st Qu.: 65.5  
+##  5:7   Median :1004.0   Median :115.0  
+##  2:7   Mean   : 922.1   Mean   :115.9  
+##  4:7   3rd Qu.:1372.0   3rd Qu.:161.5  
+##        Max.   :1582.0   Max.   :214.0
+</code></pre>
+
+<pre><code class="r">dim(Orange)
+</code></pre>
+
+<pre><code>## [1] 35  3
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-3" style="background:;">
+  <hgroup>
+    <h2>Code Snippet</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>In the below code snippet we have created some shiny widgets like an input text dropbox to select the choice of Orange tree by the tree number given, a selected tree displays the age and circumference related to that Tree.<br>
+Also craeted a slider with ageRange as an input and takes in the paraments age as well as circumference and outputs a barplot 
+displaying the change in circumference with age for a selected tree. </p>
+
+<p>inputPanel(
+  selectInput(&quot;Tree&quot;, label = &quot;Tree Number&quot;,
+      choices = c(1, 2, 3, 4, 5), selected = 1),</p>
+
+<p>sliderInput(&quot;ageRange&quot;, label = &quot;Age of Orange Tree:&quot;,
+              min = 100, max = 1600, value = c(100, 1600),  step = 0.2)
+)</p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-4" style="background:;">
+  <hgroup>
+    <h2>Sample Plot</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>Using the input from the slider and tree selection widget, we plot a bar plot.See below and example/plot.</p>
+
+<p><img src="assets/fig/unnamed-chunk-2-1.png" alt="plot of chunk unnamed-chunk-2"> </p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-5" style="background:;">
+  <article data-timings="">
+    <p>Refernces
+To see a full working demo of the project go to <a href="https://pratheebha-lakshminarayanan78.shinyapps.io/demo">https://pratheebha-lakshminarayanan78.shinyapps.io/demo</a></p>
+
+<p>Complete code and additional documentation can be found at  <a href="https://github.com/pratheebha/Developing-Data-Products">https://github.com/pratheebha/Developing-Data-Products</a></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+    <slide class="backdrop"></slide>
+  </slides>
+  <div class="pagination pagination-small" id='io2012-ptoc' style="display:none;">
+    <ul>
+      <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=1 title='About the Project'>
+         1
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=2 title='Orange Data Source'>
+         2
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=3 title='Code Snippet'>
+         3
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=4 title='Sample Plot'>
+         4
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=5 title='NA'>
+         5
+      </a>
+    </li>
+  </ul>
+  </div>  <!--[if IE]>
+    <script 
+      src="http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js">  
+    </script>
+    <script>CFInstall.check({mode: 'overlay'});</script>
+  <![endif]-->
+</body>
+  <!-- Load Javascripts for Widgets -->
+  
+  <!-- LOAD HIGHLIGHTER JS FILES -->
+  <script src="libraries/highlighters/highlight.js/highlight.pack.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  <!-- DONE LOADING HIGHLIGHTER JS FILES -->
+   
+  </html>
